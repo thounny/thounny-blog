@@ -1,6 +1,6 @@
 +++
 author = "thounny"
-title = "getDays(when)"
+title = "travel plans calculator"
 date = "2024-10-17"
 description = "Building travel plans calculator"
 tags = [
@@ -8,7 +8,7 @@ tags = [
     "code",
 ]
 categories = [
-    "projects",
+    "Code",
 ]
 +++
 

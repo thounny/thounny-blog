@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>thounny&#39;s blog</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="http://localhost:1313//favicon.ico">
+    <link rel="canonical" href="http://localhost:1313/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="http://localhost:1313/">thounny&#39;s blog</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>About</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Car Rental Cost Estimator - Thu, Oct 17, 2024</h1>
+    </div>
+    <p class="lead">Building a Simple Car Rental Cost Estimator with JavaScript</p>
+    <h1 id="building-a-simple-car-rental-cost-estimator-with-javascript">Building a Simple Car Rental Cost Estimator with JavaScript</h1>
+<h2 id="in-this-blog-post-well-go-over-how-to-build-a-simple-car-rental-cost-estimator-using-html-and-javascript">In this blog post, we’ll go over how to build a simple car rental cost estimator using HTML and JavaScript.</h2>
+<p>The goal is to calculate the total cost of renting a car based on the number of rental days, selected options (like toll tags, GPS, or roadside assistance), and whether the renter is under the age of 25 (which adds a surcharge). We will break down the code step-by-step so even beginners can follow along.</p>
+<h3 id="the-html-part--setting-up-the-user-interface">The HTML Part – Setting up the User Interface</h3>
+<p>Let&rsquo;s first understand the structure of our web page, which is written in <strong>HTML</strong>. This part creates the form that the user interacts with to enter the number of rental days and choose additional options.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Car Rental&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;ACME Car Rental&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pickupDate&#34;</span>
+</span></span><span style="display:flex;"><span>      &gt;Pickup Date:
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;date&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pickupDate&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;numberDays&#34;</span>
+</span></span><span style="display:flex;"><span>      &gt;Number of days:
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;number&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;numberDays&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h2</span>&gt;Options&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;toll&#34;</span> /&gt;Electronic Toll Tag ($3.95/day)
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span>&gt; &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gps&#34;</span> /&gt;GPS ($2.95/day) &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roadside&#34;</span> /&gt;Roadside Assistance ($2.95/day)
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h2</span>&gt;Under 25&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span>&gt; &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;under&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;notUnder&#34;</span> /&gt;No&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span>&gt; &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;under&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;isUnder&#34;</span> /&gt;Yes&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">br</span> /&gt;&lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;estimateButton&#34;</span>&gt;Estimate Total Cost&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">pre</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;receiptOutput&#34;</span>&gt;&lt;/<span style="color:#f92672">pre</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;script.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h3 id="breaking-down-the-html">Breaking Down the HTML:</h3>
+<ol>
+<li>
+<p><strong>User Inputs:</strong></p>
+<ul>
+<li>The user selects a pickup date using the <code>&lt;input type=&quot;date&quot;&gt;</code> element.</li>
+<li>The number of rental days is entered using <code>&lt;input type=&quot;number&quot; id=&quot;numberDays&quot;&gt;</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Options:</strong></p>
+<ul>
+<li>Users can select extra services like Electronic Toll Tag, GPS, and Roadside Assistance using checkboxes (<code>&lt;input type=&quot;checkbox&quot;&gt;</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Under 25 Surcharge:</strong></p>
+<ul>
+<li>A radio button allows users to indicate if they are under the age of 25, which affects the cost by applying an extra surcharge.</li>
+</ul>
+</li>
+<li>
+<p><strong>Button:</strong></p>
+<ul>
+<li>The button labeled “Estimate Total Cost” triggers the cost calculation when clicked.</li>
+</ul>
+</li>
+<li>
+<p><strong>Receipt Display:</strong></p>
+<ul>
+<li>The <code>&lt;pre&gt;</code> tag (with <code>id=&quot;receiptOutput&quot;</code>) is used to show the cost breakdown after calculation.</li>
+</ul>
+</li>
+</ol>
+<h3 id="the-javascript-part--calculating-the-cost">The JavaScript Part – Calculating the Cost</h3>
+<p>Now, let&rsquo;s dive into the <strong>JavaScript</strong> that powers the logic behind the form. This is contained in <code>script.js</code>, and it handles the rental cost calculations based on the user&rsquo;s input.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getReceipt</span>(<span style="color:#a6e22e">days</span>, <span style="color:#a6e22e">wantsToll</span>, <span style="color:#a6e22e">wantsGPS</span>, <span style="color:#a6e22e">wantsRoadSide</span>, <span style="color:#a6e22e">isUnderAge</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rentalDay</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">29.99</span>; <span style="color:#75715e">// Daily car rental cost
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">surchargePercent</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.3</span>; <span style="color:#75715e">// 30% surcharge for underage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">carRental</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">rentalDay</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">days</span>; <span style="color:#75715e">// Total rental cost without options
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">surchargeAmount</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// Initialize surchargeAmount
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Apply surcharge if under age
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isUnderAge</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">surchargeAmount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">surchargePercent</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">carRental</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">carRental</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">surchargeAmount</span>; <span style="color:#75715e">// Add surcharge to car rental
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">optionsSubTotal</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// Initialize options cost subtotal
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Calculate options subtotal based on selected options
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wantsToll</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">optionsSubTotal</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">3.95</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">days</span>; <span style="color:#75715e">// Toll charge per day
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wantsGPS</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">optionsSubTotal</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2.95</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">days</span>; <span style="color:#75715e">// GPS charge per day
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wantsRoadSide</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">optionsSubTotal</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2.95</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">days</span>; <span style="color:#75715e">// Roadside assistance charge per day
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">grandTotal</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">carRental</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">optionsSubTotal</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">surchargeAmount</span>).<span style="color:#a6e22e">toFixed</span>(<span style="color:#ae81ff">2</span>); <span style="color:#75715e">// Final total, formatted to 2 decimals
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Car Rental: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">carRental</span>.<span style="color:#a6e22e">toFixed</span>(<span style="color:#ae81ff">2</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Options: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">optionsSubTotal</span>.<span style="color:#a6e22e">toFixed</span>(<span style="color:#ae81ff">2</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Under 25 surcharge: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">surchargeAmount</span>.<span style="color:#a6e22e">toFixed</span>(<span style="color:#ae81ff">2</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Total Due: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">grandTotal</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="explaining-the-javascript">Explaining the JavaScript:</h3>
+<ol>
+<li>
+<p><strong>Input Parameters:</strong>
+The <code>getReceipt</code> function accepts several parameters:</p>
+<ul>
+<li><code>days</code>: The number of days the car is being rented.</li>
+<li><code>wantsToll</code>, <code>wantsGPS</code>, and <code>wantsRoadSide</code>: Boolean values that indicate whether the user selected these options.</li>
+<li><code>isUnderAge</code>: A boolean indicating whether the renter is under 25.</li>
+</ul>
+</li>
+<li>
+<p><strong>Car Rental Calculation:</strong></p>
+<ul>
+<li>The daily rental rate is set at <code>$29.99</code>.</li>
+<li>If the renter is under 25, a 30% surcharge (<code>surchargePercent</code>) is added to the total rental cost.</li>
+<li>The surcharge amount is calculated and added to the <code>carRental</code> cost if the renter is under 25.</li>
+</ul>
+</li>
+<li>
+<p><strong>Options Cost Calculation:</strong></p>
+<ul>
+<li>The cost of additional services is calculated based on the number of rental days. For example, the electronic toll tag costs <code>$3.95/day</code>, while both GPS and roadside assistance cost <code>$2.95/day</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Final Calculation:</strong></p>
+<ul>
+<li>The grand total is the sum of the rental cost, any surcharge, and the cost of selected options.</li>
+<li>The <code>.toFixed(2)</code> method ensures that the total is rounded to two decimal places for currency formatting.</li>
+</ul>
+</li>
+</ol>
+<h3 id="linking-the-form-to-the-function">Linking the Form to the Function</h3>
+<p>Finally, we need to ensure that when the user clicks the “Estimate Total Cost” button, the <code>getReceipt</code> function is triggered, and the receipt is displayed. This is done in the event listener:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;DOMContentLoaded&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numberDays</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;numberDays&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">toll</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;toll&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gps</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;gps&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">roadside</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;roadside&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isUnder</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;isUnder&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">estimateButton</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;estimateButton&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">receiptOutput</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;receiptOutput&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Event listener for the button click
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">estimateButton</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">receiptOutput</span>.<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getReceipt</span>(
+</span></span><span style="display:flex;"><span>      parseInt(<span style="color:#a6e22e">numberDays</span>.<span style="color:#a6e22e">value</span>), <span style="color:#75715e">// Convert to integer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">toll</span>.<span style="color:#a6e22e">checked</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gps</span>.<span style="color:#a6e22e">checked</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">roadside</span>.<span style="color:#a6e22e">checked</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">isUnder</span>.<span style="color:#a6e22e">checked</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h3 id="how-it-works">How It Works:</h3>
+<ul>
+<li>The <strong>DOMContentLoaded</strong> event ensures that the JavaScript only runs after the page has loaded.</li>
+<li>The event listener on the “Estimate Total Cost” button grabs the values from the form, calls <code>getReceipt</code>, and displays the result in the <code>receiptOutput</code> area.</li>
+<li>Each option is checked whether it&rsquo;s selected or not, and the appropriate cost is calculated based on the user&rsquo;s choices.</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>In this project, we built a simple car rental estimator using HTML and JavaScript. The key parts of the project include:</p>
+<ol>
+<li><strong>HTML Form</strong> to collect input from users.</li>
+<li><strong>JavaScript Function</strong> to calculate the total rental cost based on user input.</li>
+<li><strong>Event Listener</strong> to trigger the calculation and display the result.</li>
+</ol>
+
+    <h4><a href="http://localhost:1313/">Back to Home</a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+<a href="https://github.com/thounny" target="_blank">
+    thounny
+</a>
+<span id="thisyear">2024</span>
+
+    | tone
+
+
+        | Built on <a href="//gohugo.io" target="_blank">Hugo</a>
+
+</p>
+    <p class="text-center">
+        
+        
+        <a href="https://www.linkedin.com/in/thounny/">Linkedin</a> 
+        <a href="https://github.com/thounny">GitHub</a> 
+        
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>
