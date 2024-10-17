@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My Blog Site</title>
+    <title>thounny&#39;s blog</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on My Blog Site</description>
+    <description>Recent content on thounny&#39;s blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;&#xA;&lt;p&gt;Welcome to my blog! Here, I share my thoughts, interesting things I come across, and updates on my projects and designs. This space serves as a creative outlet where I can express my ideas, showcase my work, and connect with others who share similar passions.&lt;/p&gt;&#xA;&lt;p&gt;As a Creative Front-End Developer, I enjoy exploring new technologies and trends in web development. From innovative designs to the latest coding techniques, I strive to push the boundaries of what’s possible in the digital world.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pomodoro Timer App</title>
+      <link>http://localhost:1313/post/pomodoro_timer/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/pomodoro_timer/</guid>
+      <description>&lt;h1 id=&#34;building-my-pomodoro-timer&#34;&gt;Building My Pomodoro Timer&lt;/h1&gt;&#xA;&lt;p&gt;Creating my own Pomodoro timer has been a fulfilling project that allowed me to dive deep into JavaScript, HTML, and CSS. This project not only tested my coding skills but also pushed me to problem-solve and innovate. In this blog post, I’ll share the journey of building the timer, the errors I encountered along the way, and how the &lt;strong&gt;Serenity Moment&lt;/strong&gt; timer inspired my design and functionality choices.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>http://localhost:1313/post/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Placeholder Text</title>
+      <link>http://localhost:1313/post/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de&#xA;pectora summo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Emoji Support</title>
+      <link>http://localhost:1313/post/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

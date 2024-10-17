@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on thounny&#39;s blog</title>
+    <link>http://localhost:1313/tags/projects/</link>
+    <description>Recent content in Projects on thounny&#39;s blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pomodoro Timer App</title>
+      <link>http://localhost:1313/post/pomodoro_timer/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/pomodoro_timer/</guid>
+      <description>&lt;h1 id=&#34;building-my-pomodoro-timer&#34;&gt;Building My Pomodoro Timer&lt;/h1&gt;&#xA;&lt;p&gt;Creating my own Pomodoro timer has been a fulfilling project that allowed me to dive deep into JavaScript, HTML, and CSS. This project not only tested my coding skills but also pushed me to problem-solve and innovate. In this blog post, I’ll share the journey of building the timer, the errors I encountered along the way, and how the &lt;strong&gt;Serenity Moment&lt;/strong&gt; timer inspired my design and functionality choices.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
