@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>thounny&#39;s blog</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="http://localhost:1313//favicon.ico">
+    <link rel="canonical" href="http://localhost:1313/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="http://localhost:1313/">thounny&#39;s blog</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>About</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>getDays(when) - Thu, Oct 17, 2024</h1>
+    </div>
+    <p class="lead">Building travel plans calculator</p>
+    <h3 id="function-getdayswhen">Function: <code>getDays(when)</code></h3>
+<h4 id="line-1">Line 1:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getDays</span>(<span style="color:#a6e22e">when</span>) {
+</span></span></code></pre></div><ul>
+<li>This defines a function named <code>getDays</code> that takes one argument, <code>when</code>. The argument <code>when</code> is expected to be a JavaScript <code>Date</code> object representing the future date.</li>
+</ul>
+<h4 id="line-2">Line 2:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentTime</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</span></span></code></pre></div><ul>
+<li>This creates a new <code>Date</code> object called <code>currentTime</code>, which represents the current date and time (i.e., the moment when the code is executed).</li>
+</ul>
+<h4 id="line-3">Line 3:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">when</span>.<span style="color:#a6e22e">getTime</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">currentTime</span>.<span style="color:#a6e22e">getTime</span>();
+</span></span></code></pre></div><ul>
+<li>This calculates the difference between the future date (<code>when</code>) and the current date (<code>currentTime</code>), both converted to milliseconds using <code>.getTime()</code>.</li>
+<li><code>.getTime()</code> gives the number of milliseconds since January 1, 1970 (known as the Unix epoch).</li>
+<li>The result (<code>diff</code>) is the difference in milliseconds between the two dates.</li>
+</ul>
+<h4 id="line-4">Line 4:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">msPerDay</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span>;
+</span></span></code></pre></div><ul>
+<li>This defines a constant (<code>msPerDay</code>) which represents the number of milliseconds in one day.
+<ul>
+<li><code>1000</code> milliseconds in one second.</li>
+<li><code>60</code> seconds in one minute.</li>
+<li><code>60</code> minutes in one hour.</li>
+<li><code>24</code> hours in one day.</li>
+</ul>
+</li>
+</ul>
+<h4 id="line-5">Line 5:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">days</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">msPerDay</span>;
+</span></span></code></pre></div><ul>
+<li>This calculates the difference between the two dates (<code>when</code> and <code>currentTime</code>) in <strong>days</strong> by dividing the total difference in milliseconds (<code>diff</code>) by the number of milliseconds in a day (<code>msPerDay</code>).</li>
+</ul>
+<h4 id="line-6">Line 6:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rounded</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">ceil</span>(<span style="color:#a6e22e">days</span>);
+</span></span></code></pre></div><ul>
+<li>This rounds up the number of days to the nearest whole number using <code>Math.ceil()</code>. If there is any partial day (like 1.2 days), it will round up to 2 days. This is stored in the <code>rounded</code> variable.</li>
+</ul>
+<h4 id="lines-7-11-ternary-operation">Lines 7-11 (Ternary Operation):</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">rounded</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34; day&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; days&#34;</span>;
+</span></span></code></pre></div><ul>
+<li>This is a <strong>ternary operator</strong>, which is a shorthand for an <code>if-else</code> statement. It checks if the <code>rounded</code> value is exactly <code>1</code>.
+<ul>
+<li>If <code>rounded</code> is <code>1</code>, <code>text</code> is set to <code>&quot; day&quot;</code>.</li>
+<li>Otherwise, <code>text</code> is set to <code>&quot; days&quot;</code>. This handles pluralization, so if the result is <code>2</code>, it says &ldquo;2 days&rdquo; instead of &ldquo;2 day&rdquo;.</li>
+</ul>
+</li>
+</ul>
+<h4 id="line-12">Line 12:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">rounded</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">text</span>;
+</span></span></code></pre></div><ul>
+<li>This returns the final result by combining the rounded number of days (<code>rounded</code>) and the appropriate text (&ldquo;day&rdquo; or &ldquo;days&rdquo;).
+<ul>
+<li>For example, if <code>rounded</code> is <code>3</code>, this will return <code>&quot;3 days&quot;</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="line-13">Line 13:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>This closes the <code>getDays</code> function.</li>
+</ul>
+<hr>
+<h3 id="the-dom-ready-event-listener">The DOM Ready Event Listener</h3>
+<h4 id="line-14">Line 14:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;DOMContentLoaded&#34;</span>, (<span style="color:#a6e22e">event</span>) =&gt; {
+</span></span></code></pre></div><ul>
+<li>This code listens for the event <code>DOMContentLoaded</code>, which means the entire HTML document has been loaded and parsed. Once the DOM is ready, the code inside this function runs.</li>
+</ul>
+<h4 id="line-15">Line 15:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;DOM fully loaded and parsed&#34;</span>);
+</span></span></code></pre></div><ul>
+<li>This logs the message &ldquo;DOM fully loaded and parsed&rdquo; to the browser&rsquo;s console, mainly to confirm that the document is ready.</li>
+</ul>
+<h4 id="line-16">Line 16:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;submitDate&#34;</span>);
+</span></span></code></pre></div><ul>
+<li>This retrieves the HTML element with the ID <code>submitDate</code> (the button the user will click) and assigns it to the variable <code>button</code>.</li>
+</ul>
+<h4 id="line-17">Line 17:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;message&#34;</span>);
+</span></span></code></pre></div><ul>
+<li>This retrieves the HTML element with the ID <code>message</code>, where the result (days) will be displayed, and assigns it to the variable <code>message</code>.</li>
+</ul>
+<h4 id="line-18">Line 18:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>  <span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, () =&gt; {
+</span></span></code></pre></div><ul>
+<li>This adds a <strong>click event listener</strong> to the button (<code>button</code>). When the button is clicked, the function inside will run.</li>
+</ul>
+<h4 id="line-19">Line 19:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">when</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date(<span style="color:#a6e22e">travelDate</span>.<span style="color:#a6e22e">value</span>);
+</span></span></code></pre></div><ul>
+<li>This gets the value entered by the user into an input field (with ID <code>travelDate</code>). The value is a date string, and the <code>new Date(travelDate.value)</code> converts this string into a <code>Date</code> object (<code>when</code>).</li>
+</ul>
+<h4 id="line-20">Line 20:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getDays</span>(<span style="color:#a6e22e">when</span>);
+</span></span></code></pre></div><ul>
+<li>This calls the <code>getDays</code> function, passing the <code>when</code> (future date) as the argument. The result (e.g., <code>&quot;3 days&quot;</code>) is then set as the <code>innerText</code> of the <code>message</code> element. This will display the result in the webpage.</li>
+</ul>
+<h4 id="line-21">Line 21:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>  });
+</span></span></code></pre></div><ul>
+<li>This closes the event listener for the button&rsquo;s click event.</li>
+</ul>
+<h4 id="line-22">Line 22:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>});
+</span></span></code></pre></div><ul>
+<li>This closes the <code>DOMContentLoaded</code> event listener.</li>
+</ul>
+<hr>
+<h3 id="summary">Summary:</h3>
+<ul>
+<li>The <code>getDays</code> function calculates the number of days between the current date and a future date.</li>
+<li>When the button is clicked, it takes the user-inputted date, calculates the days difference, and displays the result in the <code>message</code> element.</li>
+</ul>
+
+    <h4><a href="http://localhost:1313/">Back to Home</a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+<a href="https://github.com/thounny" target="_blank">
+    thounny
+</a>
+<span id="thisyear">2024</span>
+
+    | tone
+
+
+        | Built on <a href="//gohugo.io" target="_blank">Hugo</a>
+
+</p>
+    <p class="text-center">
+        
+        
+        <a href="https://www.linkedin.com/in/thounny/">Linkedin</a> 
+        <a href="https://github.com/thounny">GitHub</a> 
+        
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>
